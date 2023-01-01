@@ -1,4 +1,4 @@
-package kz.tolegen.android
+package kz.tolegen.kinolarkmm.android
 
 import android.app.Application
 import com.arkivanov.mvikotlin.timetravel.server.TimeTravelServer

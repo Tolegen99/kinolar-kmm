@@ -1,4 +1,4 @@
-package kz.tolegen.android
+package kz.tolegen.kinolarkmm.android
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

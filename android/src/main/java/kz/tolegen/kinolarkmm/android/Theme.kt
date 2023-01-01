@@ -1,4 +1,4 @@
-package kz.tolegen.android
+package kz.tolegen.kinolarkmm.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

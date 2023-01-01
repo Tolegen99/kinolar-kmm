@@ -1,4 +1,4 @@
-package kz.tolegen.android
+package kz.tolegen.kinolarkmm.android
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

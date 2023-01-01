@@ -1,4 +1,4 @@
-package kz.tolegen.android
+package kz.tolegen.kinolarkmm.android
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

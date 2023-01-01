@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kz.tolegen.android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="kz.tolegen.kinolarkmm.android">
     <application
-            android:allowBackup="false"
+            android:allowBackup="true"
             android:supportsRtl="true"
             android:label="@string/app_name"
+            android:name=".App"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <activity android:name=".MainActivity" android:exported="true">
+        <activity android:name="kz.tolegen.kinolarkmm.android.MainActivity"
+                  android:label="@string/app_name"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
