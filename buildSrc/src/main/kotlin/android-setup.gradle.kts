@@ -1,13 +1,14 @@
+
 plugins {
     id("com.android.library")
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 33
 
     defaultConfig {
-        minSdkVersion(23)
-        targetSdkVersion(30)
+        minSdk = 23
+        targetSdk = 33
     }
 
     compileOptions {

@@ -10,10 +10,14 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(project(":common:utils"))
-                implementation(project(":common:main"))
+                implementation(Deps.JetBrains.Date.date)
+                implementation(Deps.JetBrains.Kotlinx.Coroutines.coroutines)
+                implementation(Deps.JetBrains.Kotlinx.Coroutines.coroutinesSwing)
                 implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)
+                implementation(Deps.ArkIvanov.MVIKotlin.mvikotlinExtensionsReaktive)
                 implementation(Deps.ArkIvanov.Decompose.decompose)
                 implementation(Deps.Badoo.Reaktive.reaktive)
+                implementation(Deps.Badoo.Reaktive.utils)
             }
         }
     }

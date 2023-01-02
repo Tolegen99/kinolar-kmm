@@ -4,6 +4,7 @@ plugins {
 }
 
 kotlin {
+    jvm("desktop")
     android()
 
     sourceSets {
@@ -15,6 +16,12 @@ kotlin {
         }
 
         named("androidTest") {
+            dependencies {
+                implementation(Deps.JetBrains.Kotlin.testJunit)
+            }
+        }
+
+        named("desktopTest") {
             dependencies {
                 implementation(Deps.JetBrains.Kotlin.testJunit)
             }
