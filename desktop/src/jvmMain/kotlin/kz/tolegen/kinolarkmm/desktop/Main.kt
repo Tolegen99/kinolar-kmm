@@ -16,13 +16,16 @@ import com.badoo.reaktive.coroutinesinterop.asScheduler
 import com.badoo.reaktive.scheduler.overrideSchedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kz.tolegen.kinolarkmm.common.root.Root
+import kz.tolegen.kinolarkmm.common.root.integration.RootComponent
+import kz.tolegen.kinolarkmm.common.ui.root.RootContent
 
 @OptIn(ExperimentalCoroutinesApi::class)
 fun main() {
     overrideSchedulers(main = Dispatchers.Main::asScheduler)
 
     val lifecycle = LifecycleRegistry()
-//    val root = todoRoot(DefaultComponentContext(lifecycle = lifecycle))
+    val root = root(DefaultComponentContext(lifecycle = lifecycle))
 
     application {
         val windowState = rememberWindowState()
@@ -35,16 +38,15 @@ fun main() {
         ) {
             Surface(modifier = Modifier.fillMaxSize()) {
                 MaterialTheme {
-//                    TodoRootContent(root)
+                    RootContent(root)
                 }
             }
         }
     }
 }
 
-//private fun todoRoot(componentContext: ComponentContext): TodoRoot =
-//    TodoRootComponent(
-//        componentContext = componentContext,
-//        storeFactory = DefaultStoreFactory(),
-//        database = DefaultTodoSharedDatabase(TodoDatabaseDriver())
-//    )
+private fun root(componentContext: ComponentContext) =
+    RootComponent(
+        componentContext = componentContext,
+        storeFactory = DefaultStoreFactory(),
+    )

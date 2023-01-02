@@ -13,6 +13,8 @@ kotlin {
     sourceSets {
         named("jvmMain") {
             dependencies {
+                implementation(project(":common:root"))
+                implementation(project(":common:compose-ui"))
                 implementation(compose.desktop.currentOs)
                 implementation(Deps.Settings.settings)
                 implementation(Deps.ArkIvanov.Decompose.decompose)
@@ -25,7 +27,6 @@ kotlin {
                 implementation(Deps.Badoo.Reaktive.coroutinesInterop)
                 implementation(Deps.Network.Ktor.clientCio)
                 implementation(Deps.Napier.napier)
-
             }
         }
     }
