@@ -7,9 +7,10 @@ import kz.tolegen.kinolarkmm.common.main.store.MainStore.State
 internal interface MainStore : Store<Intent, State, Nothing> {
 
     sealed class Intent {
+        data class ChangeSelectedBottomNavItem(val index: Int): Intent()
     }
 
     data class State(
-        val stub: Boolean = false
+        val selectedBottomNavItem: Int = 0
     )
 }

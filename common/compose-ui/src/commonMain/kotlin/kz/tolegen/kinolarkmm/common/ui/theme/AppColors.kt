@@ -1,12 +1,9 @@
 package kz.tolegen.kinolarkmm.common.ui.theme
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 object AppColors {
-    val background by mutableStateOf(Color(0xFF242A32))
+    val background = Color(0xFF242A32)
+    val mid_gray = Color(0xFF67686D)
+    val cerulean = Color(0xFF0296E5)
 }
-
-internal val LocalColors = staticCompositionLocalOf { AppColors }

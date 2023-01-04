@@ -14,6 +14,7 @@ import com.badoo.reaktive.base.Consumer
 import kz.tolegen.kinolarkmm.common.main.Main
 import kz.tolegen.kinolarkmm.common.main.Main.Child
 import kz.tolegen.kinolarkmm.common.main.Main.Model
+import kz.tolegen.kinolarkmm.common.main.store.MainStore
 import kz.tolegen.kinolarkmm.common.main.store.MainStoreProvider
 import kz.tolegen.kinolarkmm.common.utils.asValue
 
@@ -31,7 +32,9 @@ class MainComponent(
 
     override val models: Value<Model> = store.asValue().map(stateToModel)
 
-
+    override fun bottomNavItemClicked(index: Int) {
+        store.accept(MainStore.Intent.ChangeSelectedBottomNavItem(index))
+    }
 
     private val navigation = StackNavigation<Configuration>()
 

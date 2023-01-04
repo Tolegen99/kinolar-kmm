@@ -6,6 +6,6 @@ import kz.tolegen.kinolarkmm.common.main.store.MainStore
 internal val stateToModel: (MainStore.State) -> Main.Model =
     {
         Main.Model(
-            stub = it.stub
+            selectedBottomNavItem = it.selectedBottomNavItem
         )
     }

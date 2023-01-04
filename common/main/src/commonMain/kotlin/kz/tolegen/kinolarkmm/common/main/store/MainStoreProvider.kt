@@ -22,7 +22,7 @@ internal class MainStoreProvider(
         ) {}
 
     private sealed class Result {
-
+        data class SelectedBottomNavItemChanged(val index: Int): Result()
     }
 
     private inner class ExecutorImpl : ReaktiveExecutor<Intent, Unit, State, Result, Nothing>() {
@@ -32,15 +32,18 @@ internal class MainStoreProvider(
         }
 
         override fun executeIntent(intent: Intent, getState: () -> State) {
+            when (intent) {
+                is Intent.ChangeSelectedBottomNavItem -> dispatch(Result.SelectedBottomNavItemChanged(intent.index))
+            }
             super.executeIntent(intent, getState)
         }
     }
 
     private object ReducerImpl : Reducer<State, Result> {
-        override fun State.reduce(msg: Result): State {
-            TODO("Not yet implemented")
-        }
-
+        override fun State.reduce(result: Result): State =
+            when (result) {
+                is Result.SelectedBottomNavItemChanged -> copy(selectedBottomNavItem = result.index)
+            }
     }
 
 

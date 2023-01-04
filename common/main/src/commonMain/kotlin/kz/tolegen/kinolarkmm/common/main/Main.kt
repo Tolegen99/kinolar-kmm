@@ -9,6 +9,8 @@ interface Main {
 
     val models: Value<Model>
 
+    fun bottomNavItemClicked(index: Int)
+
     sealed class Child {
         object Stub: Child()
     }
@@ -18,6 +20,6 @@ interface Main {
     }
 
     data class Model(
-        val stub: Boolean
+        val selectedBottomNavItem: Int
     )
 }

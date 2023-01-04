@@ -18,6 +18,7 @@ fun RootContent(component: RootComponent) {
     ) {
         when (val child = it.instance) {
             is Child.Main -> MainContent(child.component)
+            else -> {}
         }
     }
 }

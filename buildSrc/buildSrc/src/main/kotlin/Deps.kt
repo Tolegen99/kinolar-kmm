@@ -1,7 +1,7 @@
 object Deps {
 
     object JetpackComposeWorkaround {
-        private const val VERSION: String = "1.2.1"
+        const val VERSION: String = "1.2.1"
         const val material = "androidx.compose.material:material:$VERSION"
     }
 
