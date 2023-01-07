@@ -7,6 +7,15 @@ object Res {
         IC_SAVE,
     }
 
+    enum class Fonts {
+        MONTSERRAT_MEDIUM,
+        MONTSERRAT_SEMI_BOLD,
+        POPPINS_MEDIUM,
+        POPPINS_REGULAR,
+        POPPINS_SEMI_BOLD,
+        ROBOTO_MEDIUM
+    }
+
     object Strings {
         const val home = "Home"
         const val search = "Search"

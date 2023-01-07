@@ -27,3 +27,9 @@ kotlin {
         }
     }
 }
+android {
+    sourceSets["main"].res.srcDirs(
+        "src/commonMain/resources",
+        "src/androidMain/resources"
+    )
+}

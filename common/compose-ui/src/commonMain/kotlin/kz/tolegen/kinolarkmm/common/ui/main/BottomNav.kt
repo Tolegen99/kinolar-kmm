@@ -9,9 +9,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kz.tolegen.kinolarkmm.common.ui.component.imageResource
 import kz.tolegen.kinolarkmm.common.ui.theme.AppColors
+import kz.tolegen.kinolarkmm.common.ui.theme.AppTypography
 import kz.tolegen.kinolarkmm.common.ui.theme.Res.Drawables
 
 @Composable
@@ -39,8 +39,10 @@ fun BottomNav(
                     )
                     Text(
                         text = bottomNavItem.name,
-                        color = if (bottomNavItem.isSelected) AppColors.cerulean else AppColors.mid_gray,
-                        fontSize = 12.sp
+                        style = if (bottomNavItem.isSelected)
+                            AppTypography.Roboto.Medium.Cerulean.sp12
+                        else
+                            AppTypography.Roboto.Medium.MidGray.sp12
                     )
                 }
         }

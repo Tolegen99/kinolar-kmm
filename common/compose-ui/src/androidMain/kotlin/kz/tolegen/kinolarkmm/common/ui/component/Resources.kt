@@ -3,13 +3,12 @@ package kz.tolegen.kinolarkmm.common.ui.component
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontFamily
 import kz.tolegen.kinolarkmm.common.ui.R
 import kz.tolegen.kinolarkmm.common.ui.theme.Res.Drawables
+import kz.tolegen.kinolarkmm.common.ui.theme.Res.Fonts
 
 @Composable
 actual fun imageResource(drawable: Drawables): Painter {
@@ -23,16 +22,19 @@ actual fun imageResource(drawable: Drawables): Painter {
 }
 
 @Composable
-actual fun Font(
-    name: String,
-    res: String,
-    weight: FontWeight,
-    style: FontStyle,
-): Font {
-    val context = LocalContext.current
-    val id = context.resources.getIdentifier(res, "font", context.packageName)
-    return Font(id, weight, style)
-}
+actual fun font(font: Fonts): FontFamily =
+    FontFamily(
+        Font(
+            when (font) {
+                Fonts.MONTSERRAT_MEDIUM -> R.font.montserrat_medium
+                Fonts.MONTSERRAT_SEMI_BOLD -> R.font.montserrat_semi_bold
+                Fonts.POPPINS_MEDIUM -> R.font.poppins_medium
+                Fonts.POPPINS_REGULAR -> R.font.poppins_regular
+                Fonts.POPPINS_SEMI_BOLD -> R.font.poppins_semi_bold
+                Fonts.ROBOTO_MEDIUM -> R.font.roboto_medium
+            }
+        )
+    )
 
 //TODO() stub
 @Composable

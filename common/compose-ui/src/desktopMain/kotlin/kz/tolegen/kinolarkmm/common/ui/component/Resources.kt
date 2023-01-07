@@ -5,10 +5,10 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.useResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.platform.Font
 import kz.tolegen.kinolarkmm.common.ui.theme.Res.Drawables
+import kz.tolegen.kinolarkmm.common.ui.theme.Res.Fonts
 
 @Composable
 actual fun imageResource(drawable: Drawables) =
@@ -22,12 +22,20 @@ actual fun imageResource(drawable: Drawables) =
 
 
 @Composable
-actual fun Font(
-    name: String,
-    res: String,
-    weight: FontWeight,
-    style: FontStyle,
-): Font = androidx.compose.ui.text.platform.Font("font/$res.ttf", weight, style)
+actual fun font(font: Fonts): FontFamily =
+    FontFamily(
+        Font(
+            when (font) {
+                Fonts.MONTSERRAT_MEDIUM -> "font/montserrat_medium.ttf"
+                Fonts.MONTSERRAT_SEMI_BOLD -> "font/montserrat_semi_bold.ttf"
+                Fonts.POPPINS_MEDIUM -> "font/poppins_medium.ttf"
+                Fonts.POPPINS_REGULAR -> "font/poppins_regular.ttf"
+                Fonts.POPPINS_SEMI_BOLD -> "font/poppins_semi_bold.ttf"
+                Fonts.ROBOTO_MEDIUM -> "font/roboto_medium.ttf"
+            }
+        )
+    )
+
 
 actual fun bitmapImageResource(res: String): ImageBitmap {
     return useResource(res) { loadImageBitmap(it) }
