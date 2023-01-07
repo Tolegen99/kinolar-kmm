@@ -10,9 +10,7 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(project(":common:utils"))
-                implementation(project(":common:home-flow"))
-                implementation(project(":common:search-flow"))
-                implementation(project(":common:watch-list-flow"))
+                implementation(project(":common:watch-list"))
                 implementation(Deps.JetBrains.Date.date)
                 implementation(Deps.JetBrains.Kotlinx.Coroutines.coroutines)
                 implementation(Deps.JetBrains.Kotlinx.Coroutines.coroutinesSwing)

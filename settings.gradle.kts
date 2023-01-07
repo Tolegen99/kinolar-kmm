@@ -1,6 +1,10 @@
 include(
     ":common:root",
     ":common:main",
+    ":common:home-flow",
+    ":common:search-flow",
+    ":common:watch-list-flow",
+    ":common:watch-list",
     ":common:utils",
     ":common:compose-ui",
     ":android",
