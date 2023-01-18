@@ -1,5 +1,6 @@
 package kz.tolegen.kinolarkmm.common.ui.main
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
@@ -19,12 +20,16 @@ fun BottomNav(
     items: List<BottomNavItem>,
     itemSelected: (Int) -> Unit
 ) =
-    Row(
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceAround
-    ) {
-        val interactionSource = remember { MutableInteractionSource() }
-        items.forEachIndexed { index, bottomNavItem ->
+        ) {
+        Spacer(modifier = Modifier.fillMaxWidth().height(1.dp).background(AppColors.cerulean))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            val interactionSource = remember { MutableInteractionSource() }
+            items.forEachIndexed { index, bottomNavItem ->
                 Column(
                     modifier = Modifier.padding(top = 16.dp, bottom = 16.dp).clickable(
                         indication = null,
@@ -40,13 +45,15 @@ fun BottomNav(
                     Text(
                         text = bottomNavItem.name,
                         style = if (bottomNavItem.isSelected)
-                            AppTypography.Roboto.Medium.Cerulean.sp12
+                            AppTypography.Roboto.Medium.Cerulean.size12
                         else
-                            AppTypography.Roboto.Medium.MidGray.sp12
+                            AppTypography.Roboto.Medium.MidGray.size12
                     )
                 }
+            }
         }
     }
+
 
 data class BottomNavItem(
     val name: String,

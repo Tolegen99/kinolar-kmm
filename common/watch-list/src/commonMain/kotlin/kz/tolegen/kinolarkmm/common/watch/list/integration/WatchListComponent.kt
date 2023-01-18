@@ -32,10 +32,6 @@ class WatchListComponent(
 
     override val models: Value<Model> = store.asValue().map(stateToModel)
 
-    override fun bottomNavItemClicked(index: Int) {
-        store.accept(WatchListStore.Intent.ChangeSelectedBottomNavItem(index))
-    }
-
     private val navigation = StackNavigation<Configuration>()
 
     private val stack =

@@ -6,6 +6,6 @@ import kz.tolegen.kinolarkmm.common.watch.list.store.WatchListStore
 internal val stateToModel: (WatchListStore.State) -> WatchList.Model =
     {
         WatchList.Model(
-            selectedBottomNavItem = it.selectedBottomNavItem
+            movies = it.movies
         )
     }

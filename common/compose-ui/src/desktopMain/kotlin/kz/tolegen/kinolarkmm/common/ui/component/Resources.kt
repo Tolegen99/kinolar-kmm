@@ -17,6 +17,7 @@ actual fun imageResource(drawable: Drawables) =
             Drawables.IC_HOME -> "drawable/ic_home.xml"
             Drawables.IC_SEARCH -> "drawable/ic_search.xml"
             Drawables.IC_SAVE -> "drawable/ic_save.xml"
+            Drawables.IC_MAGIC_BOX -> "drawable/ic_magic_box.xml"
         }
     )
 

@@ -7,10 +7,9 @@ import kz.tolegen.kinolarkmm.common.watch.list.store.WatchListStore.State
 internal interface WatchListStore : Store<Intent, State, Nothing> {
 
     sealed class Intent {
-        data class ChangeSelectedBottomNavItem(val index: Int): Intent()
     }
 
     data class State(
-        val selectedBottomNavItem: Int = 0
+        val movies: List<String> = emptyList() //TODO() change to MovieData
     )
 }

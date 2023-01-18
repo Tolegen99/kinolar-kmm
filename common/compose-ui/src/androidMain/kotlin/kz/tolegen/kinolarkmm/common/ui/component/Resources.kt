@@ -17,6 +17,7 @@ actual fun imageResource(drawable: Drawables): Painter {
             Drawables.IC_HOME -> R.drawable.ic_home
             Drawables.IC_SEARCH -> R.drawable.ic_search
             Drawables.IC_SAVE -> R.drawable.ic_save
+            Drawables.IC_MAGIC_BOX -> R.drawable.ic_magic_box
         }
     )
 }

@@ -22,7 +22,6 @@ internal class WatchListStoreProvider(
         ) {}
 
     private sealed class Result {
-        data class SelectedBottomNavItemChanged(val index: Int): Result()
     }
 
     private inner class ExecutorImpl : ReaktiveExecutor<Intent, Unit, State, Result, Nothing>() {
@@ -33,7 +32,7 @@ internal class WatchListStoreProvider(
 
         override fun executeIntent(intent: Intent, getState: () -> State) {
             when (intent) {
-                is Intent.ChangeSelectedBottomNavItem -> dispatch(Result.SelectedBottomNavItemChanged(intent.index))
+                else -> {}
             }
             super.executeIntent(intent, getState)
         }
@@ -42,7 +41,7 @@ internal class WatchListStoreProvider(
     private object ReducerImpl : Reducer<State, Result> {
         override fun State.reduce(result: Result): State =
             when (result) {
-                is Result.SelectedBottomNavItemChanged -> copy(selectedBottomNavItem = result.index)
+                else -> copy()
             }
     }
 

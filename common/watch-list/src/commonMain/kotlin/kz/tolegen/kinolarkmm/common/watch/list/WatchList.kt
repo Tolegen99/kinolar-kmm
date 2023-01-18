@@ -9,8 +9,6 @@ interface WatchList {
 
     val models: Value<Model>
 
-    fun bottomNavItemClicked(index: Int)
-
     sealed class Child {
         object Stub: Child()
     }
@@ -20,6 +18,6 @@ interface WatchList {
     }
 
     data class Model(
-        val selectedBottomNavItem: Int
+        val movies: List<String> //TODO() change to MovieData
     )
 }
