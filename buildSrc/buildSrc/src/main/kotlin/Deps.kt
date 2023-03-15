@@ -132,7 +132,7 @@ object Deps {
 
     object Network {
         object Ktor {
-            private const val VERSION = "2.1.3"
+            private const val VERSION = "2.2.4"
 
             const val network = "io.ktor:ktor-network:$VERSION"
             const val clientCore = "io.ktor:ktor-client-core:$VERSION"

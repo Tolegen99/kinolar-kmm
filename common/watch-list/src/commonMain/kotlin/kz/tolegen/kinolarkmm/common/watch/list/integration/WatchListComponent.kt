@@ -11,6 +11,7 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.badoo.reaktive.base.Consumer
+import kz.tolegen.kinolarkmm.common.api.Api
 import kz.tolegen.kinolarkmm.common.watch.list.WatchList
 import kz.tolegen.kinolarkmm.common.watch.list.WatchList.Child
 import kz.tolegen.kinolarkmm.common.watch.list.WatchList.Model
@@ -22,11 +23,13 @@ class WatchListComponent(
     componentContext: ComponentContext,
     private val output: Consumer<WatchList.Output>,
     storeFactory: StoreFactory,
+    api: Api
 ) : WatchList, ComponentContext by componentContext {
 
     private val store = instanceKeeper.getStore {
         WatchListStoreProvider(
-            storeFactory = storeFactory
+            storeFactory = storeFactory,
+            api = api
         ).provide()
     }
 
@@ -49,6 +52,10 @@ class WatchListComponent(
         return when (configuration) {
             is Configuration.Stub -> Child.Stub
         }
+    }
+
+    override fun onClear() {
+        store.accept(WatchListStore.Intent.Clear)
     }
 
     private sealed class Configuration : Parcelable {

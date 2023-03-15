@@ -8,6 +8,7 @@ kotlin {
         named("commonMain") {
             dependencies {
                 implementation(project(":common:utils"))
+                implementation(project(":common:entity"))
                 implementation(project(":common:root"))
                 implementation(project(":common:main"))
                 implementation(project(":common:home-flow"))

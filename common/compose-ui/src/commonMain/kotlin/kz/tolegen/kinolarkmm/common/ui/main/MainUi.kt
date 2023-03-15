@@ -36,6 +36,7 @@ fun MainContent(component: Main) {
                     }
                 }
             }
+
         },
         bottomBar = {
             BottomNav(

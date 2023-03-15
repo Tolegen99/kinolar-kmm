@@ -1,9 +1,13 @@
 package kz.tolegen.kinolarkmm.common.ui.watchListFlow.watchList
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.onClick
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -22,12 +26,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.jetbrains.subscribeAsState
 import kz.tolegen.kinolarkmm.common.ui.component.ImageButton
+import kz.tolegen.kinolarkmm.common.ui.component.NoDataBackground
 import kz.tolegen.kinolarkmm.common.ui.component.imageResource
 import kz.tolegen.kinolarkmm.common.ui.theme.AppColors
 import kz.tolegen.kinolarkmm.common.ui.theme.AppTypography
 import kz.tolegen.kinolarkmm.common.ui.theme.Res
 import kz.tolegen.kinolarkmm.common.watch.list.WatchList
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WatchListContent(component: WatchList) {
     val model by component.models.subscribeAsState()
@@ -48,7 +54,7 @@ fun WatchListContent(component: WatchList) {
             )
             Text(
                 text = Res.Strings.watch_list,
-                modifier = Modifier.align(Alignment.Center).padding(top = 16.dp, bottom = 16.dp),
+                modifier = Modifier.align(Alignment.Center).padding(top = 16.dp, bottom = 16.dp).onClick { component.onClear() },
                 style = AppTypography.Montserrat.SemiBold.Gallery.size16,
                 maxLines = 1,
             )
@@ -64,25 +70,15 @@ fun WatchListContent(component: WatchList) {
         }
 
         if (model.movies.isEmpty()) {
-            Column(
-                modifier = Modifier.align(Alignment.Center),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Icon(
-                    painter = imageResource(Res.Drawables.IC_MAGIC_BOX),
-                    contentDescription = "No movie",
-                    tint = Color.Unspecified
-                )
-                Text(
-                    modifier = Modifier.padding(top = 16.dp, start = 32.dp, end = 32.dp),
-                    text = Res.Strings.no_movie_yet,
-                    style = AppTypography.Montserrat.SemiBold.AthensGray.size16spacing012
-                )
-                Text(
-                    modifier = Modifier.padding(top = 8.dp, start = 64.dp, end = 64.dp),
-                    text = Res.Strings.find_your_movies_by,
-                    style = AppTypography.Montserrat.Medium.Manatee.size12spacing012alignCenter
-                )
+            NoDataBackground(modifier = Modifier.align(Alignment.Center))
+        } else {
+            LazyColumn {
+                items(model.movies) { movie ->
+                    Column {
+                        Text(text = movie.title, color = Color.White)
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                }
             }
         }
     }

@@ -9,6 +9,7 @@ kotlin {
     sourceSets {
         named("commonMain") {
             dependencies {
+                implementation(project(":common:api"))
                 implementation(project(":common:utils"))
                 implementation(project(":common:watch-list"))
                 implementation(Deps.JetBrains.Date.date)

@@ -9,6 +9,7 @@ kotlin {
     sourceSets {
         named("commonMain") {
             dependencies {
+                implementation(project(":common:api"))
                 implementation(project(":common:utils"))
                 implementation(project(":common:main"))
                 implementation(Deps.ArkIvanov.MVIKotlin.mvikotlin)

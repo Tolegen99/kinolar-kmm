@@ -10,6 +10,7 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.badoo.reaktive.base.Consumer
 import kz.tolegen.kinolarkmm.common.main.Main
+import kz.tolegen.kinolarkmm.common.api.Api
 import kz.tolegen.kinolarkmm.common.main.integration.MainComponent
 import kz.tolegen.kinolarkmm.common.root.Root
 import kz.tolegen.kinolarkmm.common.root.Root.Child
@@ -24,12 +25,14 @@ class RootComponent internal constructor(
     constructor(
         componentContext: ComponentContext,
         storeFactory: StoreFactory,
+        api: Api
     ) : this(
         componentContext = componentContext,
         main = { childContext, output ->
             MainComponent(
                 componentContext = childContext,
                 output = output,
+                api = api,
                 storeFactory = storeFactory,
             )
         }

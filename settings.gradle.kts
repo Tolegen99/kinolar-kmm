@@ -1,5 +1,7 @@
 include(
+    ":common:api",
     ":common:root",
+    ":common:entity",
     ":common:main",
     ":common:home-flow",
     ":common:search-flow",

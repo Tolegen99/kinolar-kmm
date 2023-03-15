@@ -11,6 +11,7 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.badoo.reaktive.base.Consumer
+import kz.tolegen.kinolarkmm.common.api.Api
 import kz.tolegen.kinolarkmm.common.utils.Consumer
 import kz.tolegen.kinolarkmm.common.watch.list.flow.WatchListFlow
 import kz.tolegen.kinolarkmm.common.watch.list.flow.store.WatchListFlowStore
@@ -38,6 +39,7 @@ class WatchListFlowComponent internal constructor(
     constructor(
         componentContext: ComponentContext,
         output: Consumer<Output>,
+        api: Api,
         storeFactory: StoreFactory
     ) : this(
         componentContext = componentContext,
@@ -47,6 +49,7 @@ class WatchListFlowComponent internal constructor(
             WatchListComponent(
                 componentContext = componentContext,
                 output = output,
+                api = api,
                 storeFactory = storeFactory
             )
         }

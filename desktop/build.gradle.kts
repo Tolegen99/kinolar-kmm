@@ -15,6 +15,7 @@ kotlin {
             dependencies {
                 implementation(project(":common:root"))
                 implementation(project(":common:compose-ui"))
+                implementation(project(":common:api"))
                 implementation(compose.desktop.currentOs)
                 implementation(Deps.Settings.settings)
                 implementation(Deps.ArkIvanov.Decompose.decompose)
