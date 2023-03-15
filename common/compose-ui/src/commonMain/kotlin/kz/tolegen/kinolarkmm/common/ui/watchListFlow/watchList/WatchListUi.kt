@@ -54,7 +54,8 @@ fun WatchListContent(component: WatchList) {
             )
             Text(
                 text = Res.Strings.watch_list,
-                modifier = Modifier.align(Alignment.Center).padding(top = 16.dp, bottom = 16.dp).onClick { component.onClear() },
+                modifier = Modifier.align(Alignment.Center).padding(top = 16.dp, bottom = 16.dp)
+                    .onClick { component.onClear() },
                 style = AppTypography.Montserrat.SemiBold.Gallery.size16,
                 maxLines = 1,
             )
@@ -68,16 +69,11 @@ fun WatchListContent(component: WatchList) {
                 tint = Color.Transparent
             )
         }
-
-        if (model.movies.isEmpty()) {
-            NoDataBackground(modifier = Modifier.align(Alignment.Center))
-        } else {
-            LazyColumn {
-                items(model.movies) { movie ->
-                    Column {
-                        Text(text = movie.title, color = Color.White)
-                        Spacer(modifier = Modifier.height(16.dp))
-                    }
+        LazyColumn {
+            items(model.movies) { movie ->
+                Column {
+                    Text(text = movie.title, color = Color.White)
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
