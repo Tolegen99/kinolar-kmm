@@ -69,7 +69,7 @@ fun WatchListContent(component: WatchList) {
                 tint = Color.Transparent
             )
         }
-        LazyColumn {
+        LazyColumn(modifier = Modifier.padding(top = 64.dp)) {
             items(model.movies) { movie ->
                 Column {
                     Text(text = movie.title, color = Color.White)
